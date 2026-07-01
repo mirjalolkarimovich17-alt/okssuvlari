@@ -56,6 +56,16 @@
       background: #007bcc;
       color: white;
     }
+    .qr-card { text-align: center; }
+    .qr-card h2 { color: #007bcc; margin-bottom: 15px; font-size: 1.4rem; }
+    .qr-card p { color: #555; margin-bottom: 15px; font-size: 0.95rem; }
+    #qrcode {
+      display: inline-block;
+      padding: 10px;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+    }
     footer {
       margin-top: auto;
       padding: 15px;
@@ -86,7 +96,26 @@
       <p>Buyurtma yoki ma'lumot uchun qo'ng'iroq qiling:</p>
       <a class="phone" href="tel:+998501990400">+998 50 199 04 00</a>
     </div>
+
+    <div class="card qr-card">
+      <h2>📱 QR Kod</h2>
+      <p>Saytga kirish uchun telefon kamerangiz bilan skaner qiling</p>
+      <div id="qrcode"></div>
+      <p style="margin-top:12px; font-size:0.85rem; color:#aaa;">okssuvlari.uz</p>
+    </div>
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: "https://okssuvlari.uz",
+      width: 180,
+      height: 180,
+      colorDark: "#007bcc",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
 
   <footer>
     &copy; 2026 OKS Suv Termiz. Barcha huquqlar himoyalangan.

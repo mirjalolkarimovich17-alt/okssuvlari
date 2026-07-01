@@ -1,17 +1,5 @@
 # Dependencies
 node_modules/
-package-lock.json
-
-# Build files
-.next/
-out/
-dist/
-build/
-
-# Environment files
-.env
-.env.local
-.env.production
 
 # IDE
 .vscode/
@@ -25,7 +13,6 @@ Thumbs.db
 
 # Logs
 *.log
-npm-debug.log*
 
 # Temporary files
 *.tmp

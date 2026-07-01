@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>OKS SUVLARI — Toza va sifatli suv yetkazib berish</title>
+  <meta name="description" content="OKS SUVLARI — 19 litrli toza ichimlik suvini uyingiz va ofisingizga tez yetkazib beramiz. Sifat kafolatli, hamyonbop narx." />
+  <meta property="og:title" content="OKS SUVLARI — Toza suv yetkazib berish" />
+  <meta property="og:description" content="Toza va sifatli 19L ichimlik suvi uyingizga yetkazib beriladi." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#F0F9FF',
+              100: '#E0F2FE',
+              200: '#BAE6FD',
+              400: '#38BDF8',
+              500: '#0EA5E9',
+              600: '#0284C7',
+              700: '#0369A1',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Poppins', 'Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            water: '0 20px 60px -20px rgba(14, 165, 233, 0.45)',
+            card:  '0 10px 30px -12px rgba(14, 165, 233, 0.25)',
+          },
+          backgroundImage: {
+            'gradient-hero': 'linear-gradient(135deg, #0EA5E9 0%, #7DD3FC 100%)',
+          },
+          keyframes: {
+            float: {
+              '0%,100%': { transform: 'translateY(0)' },
+              '50%':     { transform: 'translateY(-14px)' },
+            },
+          },
+          animation: {
+            float: 'float 5s ease-in-out infinite',
+          },
+          screens: {
+            'xs': '475px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Inter', system-ui, sans-serif; 
+      -webkit-font-smoothing: antialiased;
+      /* Prevent pinch zoom and scroll issues on mobile */
+      touch-action: pan-y pan-x;
+      overscroll-behavior: none;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', 'Inter', sans-serif; letter-spacing: -0.02em; }
+    .hero-bg {
+      background-image:
+        linear-gradient(180deg, rgba(14,165,233,0.55) 0%, rgba(3,105,161,0.85) 100%),
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #ffffff 0%, #BAE6FD 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Mobile-specific optimizations */
+    @media (max-width: 640px) {
+      .hero-bg {
+        background-attachment: scroll; /* Better performance on mobile */
+      }
+      
+      /* Ensure minimum touch target size (44x44px) */
+      a, button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+      
+      /* Prevent text from being too small */
+      body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      
+      /* Improve tap highlight */
+      a, button {
+        -webkit-tap-highlight-color: rgba(14, 165, 233, 0.2);
+      }
+      
+      /* Prevent pull-to-refresh and overscroll on mobile */
+      html, body {
+        overscroll-behavior-y: none;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+  <!-- NAV -->
+  <header class="fixed top-0 z-50 w-full backdrop-blur-2xl bg-white/40 border-b border-white/30 shadow-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-3 py-3 xs:px-4 sm:py-4 sm:px-6">
+      <a href="#hero" class="flex items-center gap-2 sm:gap-3">
+        <span class="grid h-9 w-9 sm:h-11 sm:w-11 place-items-center rounded-xl bg-gradient-hero shadow-water">
+          <i data-lucide="droplets" class="h-5 w-5 sm:h-6 sm:w-6 text-white"></i>
+        </span>
+        <span class="font-display text-base xs:text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-hero bg-clip-text text-transparent">OKS SUVLARI</span>
+      </a>
+      <nav class="hidden items-center gap-6 md:flex lg:gap-8">
+        <a href="#products"  class="text-sm font-semibold text-slate-800 hover:text-brand-500 transition-colors">Mahsulotlar</a>
+        <a href="#features"  class="text-sm font-semibold text-slate-800 hover:text-brand-500 transition-colors">Afzalliklar</a>
+        <a href="#contact"   class="text-sm font-semibold text-slate-800 hover:text-brand-500 transition-colors">Aloqa</a>
+      </nav>
+      <a href="tel:+998770462222" class="inline-flex items-center gap-1.5 xs:gap-2 rounded-full bg-gradient-hero px-3 py-2 xs:px-4 xs:py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-white shadow-water hover:scale-105 transition-transform whitespace-nowrap">
+        <i data-lucide="phone" class="h-3.5 w-3.5 sm:h-4 sm:w-4"></i>
+        <span>Buyurtma</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-screen overflow-hidden hero-bg">
+    <div class="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 pt-20 pb-12 sm:pt-24 sm:pb-16 text-center sm:px-6">
+      <span data-aos="fade-down" class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 sm:px-4 sm:py-1.5 text-xs font-medium text-white backdrop-blur-md">
+        <i data-lucide="sparkles" class="h-3 w-3 sm:h-3.5 sm:w-3.5"></i>
+        Kristall tozalik va sifat kafolati
+      </span>
+
+      <h1 data-aos="fade-up" data-aos-delay="100" class="mt-4 sm:mt-6 max-w-4xl text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.1] text-white">
+        OKS SUVLARI —
+        <br class="hidden xs:block" />
+        <span class="text-gradient">Tozalik va sifat kafolati</span>
+      </h1>
+
+      <p data-aos="fade-up" data-aos-delay="200" class="mt-4 sm:mt-8 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed font-medium text-white/90 px-4">
+        Kristall toza, foydali va yurakka yoqimli ta'm. Ulgurji va chakana savdo. Ofis, uy va savdo nuqtalari uchun ideal tanlav!
+      </p>
+
+      <div data-aos="fade-up" data-aos-delay="300" class="mt-8 sm:mt-10 flex flex-col w-full xs:w-auto items-center gap-3 sm:gap-4 sm:flex-row px-4">
+        <a href="#products" class="w-full xs:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold text-brand-600 shadow-water hover:scale-105 transition-transform">
+          <i data-lucide="droplets" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+          Buyurtma berish
+        </a>
+        <a href="tel:+998770462222" class="w-full xs:w-auto inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/50 bg-white/15 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold text-white backdrop-blur-md hover:bg-white/25 transition-all">
+          <i data-lucide="phone" class="h-4 w-4 sm:h-5 sm:w-5"></i>
+          <span class="hidden xs:inline">+998 77 046 22 22</span>
+          <span class="xs:hidden">Qo'ng'iroq</span>
+        </a>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="500" class="mt-12 sm:mt-16 grid w-full max-w-3xl grid-cols-3 gap-3 sm:gap-4 md:gap-6 px-4">
+        <div class="rounded-2xl border-2 border-white/30 bg-white/15 px-3 py-4 sm:px-4 sm:py-5 text-center backdrop-blur-lg">
+          <div class="flex justify-center mb-1 sm:mb-2">
+            <i data-lucide="truck" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white"></i>
+          </div>
+          <div class="text-xs sm:text-sm font-semibold text-white/80 sm:text-base">Bepul yetkazish</div>
+        </div>
+        <div class="rounded-2xl border-2 border-white/30 bg-white/15 px-3 py-4 sm:px-4 sm:py-5 text-center backdrop-blur-lg">
+          <div class="flex justify-center mb-1 sm:mb-2">
+            <i data-lucide="badge-check" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white"></i>
+          </div>
+          <div class="text-xs sm:text-sm font-semibold text-white/80 sm:text-base">Sifat kafolati</div>
+        </div>
+        <div class="rounded-2xl border-2 border-white/30 bg-white/15 px-3 py-4 sm:px-4 sm:py-5 text-center backdrop-blur-lg">
+          <div class="flex justify-center mb-1 sm:mb-2">
+            <i data-lucide="building-2" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-white"></i>
+          </div>
+          <div class="text-xs sm:text-sm font-semibold text-white/80 sm:text-base">Ulgurji/Chakana</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-12 xs:py-16 sm:py-20 lg:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <span class="text-xs xs:text-sm font-bold uppercase tracking-widest text-brand-500">Nega bizni tanlaydilar</span>
+        <h2 class="mt-3 xs:mt-4 text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">Sifat, tezlik va ishonch</h2>
+      </div>
+      <div class="mt-8 xs:mt-10 sm:mt-14 grid gap-4 xs:gap-5 sm:gap-6 md:grid-cols-3">
+        <div data-aos="fade-up" class="group rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-5 xs:p-6 sm:p-8 shadow-card hover:-translate-y-1 hover:shadow-water transition-all">
+          <span class="grid h-11 w-11 xs:h-12 xs:w-12 sm:h-14 sm:w-14 place-items-center rounded-xl xs:rounded-2xl bg-brand-100 text-brand-600 group-hover:bg-gradient-hero group-hover:text-white transition-all">
+            <i data-lucide="shield-check" class="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7"></i>
+          </span>
+          <h3 class="mt-4 xs:mt-5 sm:mt-6 text-lg xs:text-xl font-black">Kristall tozalik</h3>
+          <p class="mt-2 xs:mt-3 text-sm leading-relaxed text-slate-600">Eng yuqori sifatli tozalangan ichimlik suvi.</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100" class="group rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-5 xs:p-6 sm:p-8 shadow-card hover:-translate-y-1 hover:shadow-water transition-all">
+          <span class="grid h-11 w-11 xs:h-12 xs:w-12 sm:h-14 sm:w-14 place-items-center rounded-xl xs:rounded-2xl bg-brand-100 text-brand-600 group-hover:bg-gradient-hero group-hover:text-white transition-all">
+            <i data-lucide="truck" class="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7"></i>
+          </span>
+          <h3 class="mt-4 xs:mt-5 sm:mt-6 text-lg xs:text-xl font-black">Bepul yetkazib berish</h3>
+          <p class="mt-2 xs:mt-3 text-sm leading-relaxed text-slate-600">Termiz bo'ylab yetkazib berish mutlaqo bepul!</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="group rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-5 xs:p-6 sm:p-8 shadow-card hover:-translate-y-1 hover:shadow-water transition-all">
+          <span class="grid h-11 w-11 xs:h-12 xs:w-12 sm:h-14 sm:w-14 place-items-center rounded-xl xs:rounded-2xl bg-brand-100 text-brand-600 group-hover:bg-gradient-hero group-hover:text-white transition-all">
+            <i data-lucide="droplets" class="h-5 w-5 xs:h-6 xs:w-6 sm:h-7 sm:w-7"></i>
+          </span>
+          <h3 class="mt-4 xs:mt-5 sm:mt-6 text-lg xs:text-xl font-black">Foydali ta'm</h3>
+          <p class="mt-2 xs:mt-3 text-sm leading-relaxed text-slate-600">Yurakka yoqimli va sog'lom hayot uchun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="relative overflow-hidden bg-brand-50/60 py-12 xs:py-16 sm:py-20 lg:py-28">
+    <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand-400/30 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-brand-200/60 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+        <span class="text-xs xs:text-sm font-bold uppercase tracking-widest text-brand-500">Bizning mahsulotlar</span>
+        <h2 class="mt-3 xs:mt-4 text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">Har qanday hajmdagi suvlar</h2>
+        <p class="mt-4 xs:mt-5 text-sm xs:text-base sm:text-lg text-slate-600 font-medium px-4">0.5L | 1L | 1.5L | 6L | 12L | 19L — Ulgurji va chakana savdo</p>
+      </div>
+
+      <div class="mt-8 xs:mt-10 sm:mt-14 grid justify-center gap-5 xs:gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <!-- 0.5L -->
+        <article data-aos="zoom-in" class="group relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-4 xs:p-5 sm:p-6 shadow-card hover:shadow-water transition-all">
+          <div class="relative flex h-52 xs:h-60 sm:h-72 items-center justify-center overflow-hidden rounded-xl xs:rounded-2xl bg-gradient-to-b from-brand-100 to-white">
+            <img
+              src="rasmlar/0.5 litr.png"
+              alt="OKS SUVLARI 0.5L"
+              loading="lazy"
+              class="h-44 xs:h-52 sm:h-64 w-auto object-contain drop-shadow-2xl animate-float group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="mt-4 xs:mt-5 sm:mt-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-display text-xl xs:text-2xl font-black">OKS Suvi</h3>
+              <span class="text-xs font-bold text-slate-600">0.5 litr</span>
+            </div>
+            <p class="mt-2 xs:mt-3 text-xs xs:text-sm font-medium text-slate-600">Kichik hajm, oson tashish uchun qulay.</p>
+            <div class="mt-4 xs:mt-5">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-500">Narxi</div>
+              <div class="font-display text-2xl xs:text-3xl font-black text-brand-600">— <span class="text-sm xs:text-base font-bold text-slate-500">so'm</span></div>
+            </div>
+            <div class="mt-4 xs:mt-5 sm:mt-6 grid grid-cols-2 gap-2 xs:gap-3">
+              <a href="tel:+998770462222" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl bg-gradient-hero px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-white shadow-card hover:scale-[1.02] transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> <span class="hidden xs:inline">Qo'ng'iroq</span><span class="xs:hidden">Tel</span>
+              </a>
+              <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl border-2 border-brand-200 bg-white px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-brand-600 hover:bg-brand-50 transition-colors">
+                <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 1L -->
+        <article data-aos="zoom-in" data-aos-delay="100" class="group relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-4 xs:p-5 sm:p-6 shadow-card hover:shadow-water transition-all">
+          <div class="relative flex h-52 xs:h-60 sm:h-72 items-center justify-center overflow-hidden rounded-xl xs:rounded-2xl bg-gradient-to-b from-brand-100 to-white">
+            <img
+              src="rasmlar/1 litr.png"
+              alt="OKS SUVLARI 1L"
+              loading="lazy"
+              class="h-44 xs:h-52 sm:h-64 w-auto object-contain drop-shadow-2xl animate-float group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-3 left-3 xs:top-4 xs:left-4 rounded-full bg-gradient-hero px-2.5 py-0.5 xs:px-3 xs:py-1 text-xs font-semibold text-white shadow-water">Mashxur</span>
+          </div>
+          <div class="mt-4 xs:mt-5 sm:mt-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-display text-xl xs:text-2xl font-black">OKS Suvi</h3>
+              <span class="text-xs font-bold text-slate-600">1 litr</span>
+            </div>
+            <p class="mt-2 xs:mt-3 text-xs xs:text-sm font-medium text-slate-600">Standart hajm, kundalik iste'mol uchun.</p>
+            <div class="mt-4 xs:mt-5">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-500">Narxi</div>
+              <div class="font-display text-2xl xs:text-3xl font-black text-brand-600">— <span class="text-sm xs:text-base font-bold text-slate-500">so'm</span></div>
+            </div>
+            <div class="mt-4 xs:mt-5 sm:mt-6 grid grid-cols-2 gap-2 xs:gap-3">
+              <a href="tel:+998770462222" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl bg-gradient-hero px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-white shadow-card hover:scale-[1.02] transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> <span class="hidden xs:inline">Qo'ng'iroq</span><span class="xs:hidden">Tel</span>
+              </a>
+              <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl border-2 border-brand-200 bg-white px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-brand-600 hover:bg-brand-50 transition-colors">
+                <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 1.5L -->
+        <article data-aos="zoom-in" data-aos-delay="200" class="group relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-4 xs:p-5 sm:p-6 shadow-card hover:shadow-water transition-all">
+          <div class="relative flex h-52 xs:h-60 sm:h-72 items-center justify-center overflow-hidden rounded-xl xs:rounded-2xl bg-gradient-to-b from-brand-100 to-white">
+            <img
+              src="rasmlar/1.5 litr.png"
+              alt="OKS SUVLARI 1.5L"
+              loading="lazy"
+              class="h-44 xs:h-52 sm:h-64 w-auto object-contain drop-shadow-2xl animate-float group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="mt-4 xs:mt-5 sm:mt-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-display text-xl xs:text-2xl font-black">OKS Suvi</h3>
+              <span class="text-xs font-bold text-slate-600">1.5 litr</span>
+            </div>
+            <p class="mt-2 xs:mt-3 text-xs xs:text-sm font-medium text-slate-600">Katta hajm, oilaviy iste'mol.</p>
+            <div class="mt-4 xs:mt-5">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-500">Narxi</div>
+              <div class="font-display text-2xl xs:text-3xl font-black text-brand-600">— <span class="text-sm xs:text-base font-bold text-slate-500">so'm</span></div>
+            </div>
+            <div class="mt-4 xs:mt-5 sm:mt-6 grid grid-cols-2 gap-2 xs:gap-3">
+              <a href="tel:+998770462222" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl bg-gradient-hero px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-white shadow-card hover:scale-[1.02] transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> <span class="hidden xs:inline">Qo'ng'iroq</span><span class="xs:hidden">Tel</span>
+              </a>
+              <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl border-2 border-brand-200 bg-white px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-brand-600 hover:bg-brand-50 transition-colors">
+                <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6L -->
+        <article data-aos="zoom-in" data-aos-delay="300" class="group relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-4 xs:p-5 sm:p-6 shadow-card hover:shadow-water transition-all">
+          <div class="relative flex h-52 xs:h-60 sm:h-72 items-center justify-center overflow-hidden rounded-xl xs:rounded-2xl bg-gradient-to-b from-brand-100 to-white">
+            <img
+              src="rasmlar/6 litr.png"
+              alt="OKS SUVLARI 6L"
+              loading="lazy"
+              class="h-44 xs:h-52 sm:h-64 w-auto object-contain drop-shadow-2xl animate-float group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="mt-4 xs:mt-5 sm:mt-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-display text-xl xs:text-2xl font-black">OKS Suvi</h3>
+              <span class="text-xs font-bold text-slate-600">6 litr</span>
+            </div>
+            <p class="mt-2 xs:mt-3 text-xs xs:text-sm font-medium text-slate-600">Ofis va uy uchun ideal hajm.</p>
+            <div class="mt-4 xs:mt-5">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-500">Narxi</div>
+              <div class="font-display text-2xl xs:text-3xl font-black text-brand-600">— <span class="text-sm xs:text-base font-bold text-slate-500">so'm</span></div>
+            </div>
+            <div class="mt-4 xs:mt-5 sm:mt-6 grid grid-cols-2 gap-2 xs:gap-3">
+              <a href="tel:+998770462222" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl bg-gradient-hero px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-white shadow-card hover:scale-[1.02] transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> <span class="hidden xs:inline">Qo'ng'iroq</span><span class="xs:hidden">Tel</span>
+              </a>
+              <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl border-2 border-brand-200 bg-white px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-brand-600 hover:bg-brand-50 transition-colors">
+                <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12L -->
+        <article data-aos="zoom-in" data-aos-delay="400" class="group relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-4 xs:p-5 sm:p-6 shadow-card hover:shadow-water transition-all lg:col-start-2">
+          <div class="relative flex h-52 xs:h-60 sm:h-72 items-center justify-center overflow-hidden rounded-xl xs:rounded-2xl bg-gradient-to-b from-brand-100 to-white">
+            <img
+              src="rasmlar/12 litr.png"
+              alt="OKS SUVLARI 12L"
+              loading="lazy"
+              class="h-44 xs:h-52 sm:h-64 w-auto object-contain drop-shadow-2xl animate-float group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-3 left-3 xs:top-4 xs:left-4 rounded-full bg-gradient-hero px-2.5 py-0.5 xs:px-3 xs:py-1 text-xs font-semibold text-white shadow-water">Ommabop</span>
+          </div>
+          <div class="mt-4 xs:mt-5 sm:mt-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-display text-xl xs:text-2xl font-black">OKS Suvi</h3>
+              <span class="text-xs font-bold text-slate-600">12 litr</span>
+            </div>
+            <p class="mt-2 xs:mt-3 text-xs xs:text-sm font-medium text-slate-600">Katta hajm, savdo nuqtalari uchun.</p>
+            <div class="mt-4 xs:mt-5">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-500">Narxi</div>
+              <div class="font-display text-2xl xs:text-3xl font-black text-brand-600">— <span class="text-sm xs:text-base font-bold text-slate-500">so'm</span></div>
+            </div>
+            <div class="mt-4 xs:mt-5 sm:mt-6 grid grid-cols-2 gap-2 xs:gap-3">
+              <a href="tel:+998770462222" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl bg-gradient-hero px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-white shadow-card hover:scale-[1.02] transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> <span class="hidden xs:inline">Qo'ng'iroq</span><span class="xs:hidden">Tel</span>
+              </a>
+              <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl border-2 border-brand-200 bg-white px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-brand-600 hover:bg-brand-50 transition-colors">
+                <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19L -->
+        <article data-aos="zoom-in" data-aos-delay="500" class="group relative mx-auto w-full max-w-sm overflow-hidden rounded-2xl xs:rounded-3xl border border-slate-200 bg-white p-4 xs:p-5 sm:p-6 shadow-card hover:shadow-water transition-all">
+          <div class="relative flex h-52 xs:h-60 sm:h-72 items-center justify-center overflow-hidden rounded-xl xs:rounded-2xl bg-gradient-to-b from-brand-100 to-white">
+            <img
+              src="rasmlar/19 litr.png"
+              alt="OKS SUVLARI 19L"
+              loading="lazy"
+              class="h-44 xs:h-52 sm:h-64 w-auto object-contain drop-shadow-2xl animate-float group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="mt-4 xs:mt-5 sm:mt-6">
+            <div class="flex items-baseline justify-between gap-2">
+              <h3 class="font-display text-xl xs:text-2xl font-black">OKS Suvi</h3>
+              <span class="text-xs font-bold text-slate-600">19 litr</span>
+            </div>
+            <p class="mt-2 xs:mt-3 text-xs xs:text-sm font-medium text-slate-600">Premium hajm, dispenser uchun.</p>
+            <div class="mt-4 xs:mt-5">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-500">Narxi</div>
+              <div class="font-display text-2xl xs:text-3xl font-black text-brand-600">— <span class="text-sm xs:text-base font-bold text-slate-500">so'm</span></div>
+            </div>
+            <div class="mt-4 xs:mt-5 sm:mt-6 grid grid-cols-2 gap-2 xs:gap-3">
+              <a href="tel:+998770462222" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl bg-gradient-hero px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-white shadow-card hover:scale-[1.02] transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> <span class="hidden xs:inline">Qo'ng'iroq</span><span class="xs:hidden">Tel</span>
+              </a>
+              <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 xs:gap-2 rounded-lg xs:rounded-xl border-2 border-brand-200 bg-white px-3 py-2.5 xs:px-4 xs:py-3 sm:py-3.5 text-xs xs:text-sm font-bold text-brand-600 hover:bg-brand-50 transition-colors">
+                <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-12 xs:py-16 sm:py-20 lg:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-6 xs:gap-8 sm:gap-10 rounded-2xl xs:rounded-3xl bg-gradient-hero p-6 xs:p-8 sm:p-12 md:p-16 shadow-water md:grid-cols-2">
+        <div data-aos="fade-right" class="text-white">
+          <span class="text-xs font-bold uppercase tracking-widest text-white/90">Aloqa</span>
+          <h2 class="mt-3 xs:mt-4 text-3xl xs:text-4xl sm:text-5xl font-black leading-tight">Biz bilan bog'laning</h2>
+          <p class="mt-4 xs:mt-5 max-w-md text-sm xs:text-base sm:text-lg font-medium text-white/90">Buyurtma berish uchun qo'ng'iroq qiling. Jonibek — sizga yordam berishdan mamnun bo'lamiz!</p>
+
+          <div class="mt-6 xs:mt-8 space-y-3 xs:space-y-4">
+            <a href="tel:+998770462222" class="flex items-center gap-3 xs:gap-4 group">
+              <span class="grid h-10 w-10 xs:h-11 xs:w-11 place-items-center rounded-lg xs:rounded-xl bg-white/15 backdrop-blur-md group-hover:bg-white/25 transition-colors">
+                <i data-lucide="phone" class="h-4 w-4 xs:h-5 xs:w-5"></i>
+              </span>
+              <div>
+                <div class="text-xs text-white/70">Jonibek</div>
+                <div class="text-sm xs:text-base font-semibold">+998 77 046 22 22</div>
+              </div>
+            </a>
+            <a href="tel:+998990582222" class="flex items-center gap-3 xs:gap-4 group">
+              <span class="grid h-10 w-10 xs:h-11 xs:w-11 place-items-center rounded-lg xs:rounded-xl bg-white/15 backdrop-blur-md group-hover:bg-white/25 transition-colors">
+                <i data-lucide="phone" class="h-4 w-4 xs:h-5 xs:w-5"></i>
+              </span>
+              <div>
+                <div class="text-xs text-white/70">Jonibek</div>
+                <div class="text-sm xs:text-base font-semibold">+998 99 058 22 22</div>
+              </div>
+            </a>
+            <div class="flex items-center gap-3 xs:gap-4">
+              <span class="grid h-10 w-10 xs:h-11 xs:w-11 place-items-center rounded-lg xs:rounded-xl bg-white/15 backdrop-blur-md">
+                <i data-lucide="map-pin" class="h-4 w-4 xs:h-5 xs:w-5"></i>
+              </span>
+              <div>
+                <div class="text-xs text-white/70">Manzil</div>
+                <div class="text-sm xs:text-base font-semibold">Termiz shahri</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 xs:gap-4">
+              <span class="grid h-10 w-10 xs:h-11 xs:w-11 place-items-center rounded-lg xs:rounded-xl bg-white/15 backdrop-blur-md">
+                <i data-lucide="truck" class="h-4 w-4 xs:h-5 xs:w-5"></i>
+              </span>
+              <div>
+                <div class="text-xs text-white/70">Yetkazib berish</div>
+                <div class="text-sm xs:text-base font-semibold">Bepul!</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 xs:mt-8 flex flex-wrap gap-2 xs:gap-3">
+            <a href="https://t.me/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 xs:gap-2 rounded-full bg-white px-4 py-2 xs:px-5 xs:py-2.5 text-xs xs:text-sm font-semibold text-brand-600 hover:scale-105 transition-transform">
+              <i data-lucide="send" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Telegram
+            </a>
+            <a href="https://instagram.com/okssuvlari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 xs:gap-2 rounded-full border border-white/40 bg-white/10 px-4 py-2 xs:px-5 xs:py-2.5 text-xs xs:text-sm font-semibold text-white backdrop-blur-md hover:bg-white/20 transition-colors">
+              <i data-lucide="instagram" class="h-3.5 w-3.5 xs:h-4 xs:w-4"></i> Instagram
+            </a>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" class="relative flex items-center justify-center rounded-xl xs:rounded-2xl bg-white/10 p-6 xs:p-8 backdrop-blur-md">
+          <div class="text-center text-white">
+            <i data-lucide="droplets" class="mx-auto h-12 w-12 xs:h-14 xs:w-14 sm:h-16 sm:w-16 animate-float"></i>
+            <h3 class="mt-3 xs:mt-4 font-display text-xl xs:text-2xl font-bold">Hoziroq buyurtma bering</h3>
+            <p class="mt-2 text-xs xs:text-sm text-white/80">Termiz bo'ylab bepul yetkazib berish</p>
+            <div class="mt-5 xs:mt-6 space-y-2 xs:space-y-3">
+              <a href="tel:+998770462222" class="block rounded-full bg-white px-5 py-2.5 xs:px-6 xs:py-3 text-xs xs:text-sm font-semibold text-brand-600 shadow-water hover:scale-105 transition-transform">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4 inline mr-2"></i> 
+                <span class="hidden sm:inline">+998 77 046 22 22</span>
+                <span class="sm:hidden">Qo'ng'iroq 1</span>
+              </a>
+              <a href="tel:+998990582222" class="block rounded-full border-2 border-white/50 bg-white/15 px-5 py-2.5 xs:px-6 xs:py-3 text-xs xs:text-sm font-semibold text-white backdrop-blur-md hover:bg-white/25 transition-all">
+                <i data-lucide="phone" class="h-3.5 w-3.5 xs:h-4 xs:w-4 inline mr-2"></i> 
+                <span class="hidden sm:inline">+998 99 058 22 22</span>
+                <span class="sm:hidden">Qo'ng'iroq 2</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white py-6 xs:py-8 sm:py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 xs:gap-4 px-4 text-center sm:flex-row sm:px-6 sm:text-left">
+      <div class="flex items-center gap-2">
+        <span class="grid h-8 w-8 xs:h-9 xs:w-9 place-items-center rounded-lg bg-gradient-hero">
+          <i data-lucide="droplets" class="h-3.5 w-3.5 xs:h-4 xs:w-4 text-white"></i>
+        </span>
+        <span class="font-display text-sm xs:text-base font-bold">OKS SUVLARI</span>
+      </div>
+      <p class="text-xs text-slate-500">
+        © <span id="year"></span> admincoder.uz tomonidan yaratilgan
+      </p>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- QR-KOD / TAHLIL SKRIPTLARI UCHUN JOY — QUYIDAGI IZOHNI       -->
+    <!-- O'CHIRMANG. Kodni shu joyga qo'shing (masalan <script>...   -->
+    <!-- </script> yoki <div id="qr-code">...</div>).                 -->
+    <!-- ============================================================ -->
+    <!-- QR CODE SECTION -->
+    <div class="mt-6 xs:mt-8 text-center">
+      <div class="inline-block p-4 xs:p-5 sm:p-6 bg-slate-50 rounded-xl xs:rounded-2xl">
+        <div id="qrcode"></div>
+      </div>
+    </div>
+    
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+      new QRCode(document.getElementById("qrcode"), {
+        text: "https://okssuvlari.uz",
+        width: window.innerWidth < 475 ? 140 : window.innerWidth < 640 ? 160 : 180,
+        height: window.innerWidth < 475 ? 140 : window.innerWidth < 640 ? 160 : 180,
+        colorDark: "#0EA5E9",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    </script>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic', offset: 60 });
+    lucide.createIcons();
+  </script>
+</body>
+</html>

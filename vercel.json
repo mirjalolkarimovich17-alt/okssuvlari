@@ -1,4 +1,17 @@
 {
-  "framework": "nextjs",
-  "buildCommand": "npm install next@latest react@latest react-dom@latest && npm run build"
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/index.html",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

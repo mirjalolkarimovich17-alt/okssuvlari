@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 cceb8a33db48bdec6dda6f801eb514464449147d csstud1o <csstud1o@users.noreply.github.com> 1782938365 +0500	commit (initial): Yangi zamonaviy mobile-responsive dizayn - OKS SUVLARI website
+cceb8a33db48bdec6dda6f801eb514464449147d cceb8a33db48bdec6dda6f801eb514464449147d csstud1o <csstud1o@users.noreply.github.com> 1782938379 +0500	Branch: renamed refs/heads/master to refs/heads/main
+cceb8a33db48bdec6dda6f801eb514464449147d fe7734d38f562438002266e8d2f471712b34e261 csstud1o <csstud1o@users.noreply.github.com> 1782938633 +0500	commit: Trigger deployment: yangi dizayn
+fe7734d38f562438002266e8d2f471712b34e261 a8616a98ee71fad2444bdba792794276c1c225de csstud1o <csstud1o@users.noreply.github.com> 1782938936 +0500	commit: ESKI DIZAYN OCHIRILDI - Yangi zamonaviy mobile-responsive dizayn qoshildi
+a8616a98ee71fad2444bdba792794276c1c225de dfc322a71bc246b22c3f0774f7ccc8bdb72b67c7 csstud1o <csstud1o@users.noreply.github.com> 1782939773 +0500	commit: Next.js dan static HTML ga o'tdik - sodda va tez yechim
+dfc322a71bc246b22c3f0774f7ccc8bdb72b67c7 3c3493a45cce680230011e4137bac9889fcd0c34 csstud1o <csstud1o@users.noreply.github.com> 1782939883 +0500	commit: Vercel: static HTML deploy uchun sozlandi (framework: null)
+3c3493a45cce680230011e4137bac9889fcd0c34 da8905ccce9c816c0cadf80e95791ab85dd2de37 csstud1o <csstud1o@users.noreply.github.com> 1782940070 +0500	commit: QR kod fix: barcha yo'llar index.html ga redirect qilinadi
+da8905ccce9c816c0cadf80e95791ab85dd2de37 22f3ecd497d9533ad92c436ac102cf292d8b4a6c csstud1o <csstud1o@users.noreply.github.com> 1782940400 +0500	commit: TUZATISH: public papka olib tashlandi, faqat root structure
+22f3ecd497d9533ad92c436ac102cf292d8b4a6c 0c1e8b43933cbd7c5f8dcd005cc7c2b2781d07d1 csstud1o <csstud1o@users.noreply.github.com> 1782940695 +0500	commit: QR kod redirect qaytarildi: /go -> / (bosh sahifa)
+0c1e8b43933cbd7c5f8dcd005cc7c2b2781d07d1 a1739df557385636a86cabb8d1ee9c4d8c2f26d5 csstud1o <csstud1o@users.noreply.github.com> 1783260782 +0500	commit: Kuler bo'limi qo'shildi, tugmalar Telegram botga yo'naltirildi
+a1739df557385636a86cabb8d1ee9c4d8c2f26d5 4bf8b5b8a604dc18580cd1331f78c4611002a5f8 csstud1o <csstud1o@users.noreply.github.com> 1783629475 +0500	commit: Mahsulotlarga narxlar qo'shildi
